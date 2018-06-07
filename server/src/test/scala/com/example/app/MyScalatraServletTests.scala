@@ -1,8 +1,10 @@
 package com.example.app
 
+import org.eclipse.jetty.servlet.ServletContextHandler
+import org.scalatra.servlet.ScalatraListener
 import org.scalatra.test.scalatest._
 
-class MyScalatraServletTests extends ScalatraFunSuite {
+class MyScalatraServletTests extends MyScalatraFunSuite {
 
   addServlet(classOf[MyScalatraServlet], "/*")
 

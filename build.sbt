@@ -1,22 +1,16 @@
-val ScalatraVersion = "2.6.3"
 
-organization := "com.example"
+lazy val lib = project
 
-name := "My Scalatra Web App"
-
-version := "0.1.0-SNAPSHOT"
-
-scalaVersion := "2.12.6"
-
-resolvers += Classpaths.typesafeReleases
-
-libraryDependencies ++= Seq(
-  "org.scalatra" %% "scalatra" % ScalatraVersion,
-  "org.scalatra" %% "scalatra-scalatest" % ScalatraVersion % "test",
-  "ch.qos.logback" % "logback-classic" % "1.2.3" % "runtime",
-  "org.eclipse.jetty" % "jetty-webapp" % "9.4.9.v20180320" % "container",
-  "javax.servlet" % "javax.servlet-api" % "3.1.0" % "provided"
-)
-
-enablePlugins(SbtTwirl)
-enablePlugins(ScalatraPlugin)
+lazy val server = project
+  .dependsOn(lib)
+  .enablePlugins(SbtTwirl)
+  .enablePlugins(ScalatraPlugin)
+  .settings(
+    libraryDependencies ++= Seq(
+      "org.scalatra" %% "scalatra" % "2.6.3",
+      "org.scalatra" %% "scalatra-scalatest" % "2.6.3" % "test",
+      "ch.qos.logback" % "logback-classic" % "1.2.3" % "runtime",
+      "org.eclipse.jetty" % "jetty-webapp" % "9.4.9.v20180320" % "container",
+      "javax.servlet" % "javax.servlet-api" % "3.1.0" % "provided"
+    )
+  )
