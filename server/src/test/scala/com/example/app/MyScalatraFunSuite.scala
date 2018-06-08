@@ -4,7 +4,7 @@ import org.scalatra.test.scalatest.ScalatraFunSuite
 
 trait MyScalatraFunSuite extends ScalatraFunSuite {
 
-  val projectName = "server"
-  servletContextHandler.setResourceBase(s"${projectName}/${resourceBasePath}")
+  val projectPath = getClass.getClassLoader.getResource("").toURI.resolve("../../..")
+  servletContextHandler.setResourceBase(s"${projectPath}/${resourceBasePath}")
 
 }
