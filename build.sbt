@@ -1,8 +1,5 @@
 
-lazy val lib = project
-
 lazy val server = project
-  .dependsOn(lib)
   .enablePlugins(SbtTwirl)
   .enablePlugins(ScalatraPlugin)
   .settings(
